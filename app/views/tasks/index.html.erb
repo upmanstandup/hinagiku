@@ -1,0 +1,15 @@
+<h1>Tasks#index</h1>
+
+<table class="tasks">
+  <col class="name" />
+  <col class="due_date" />
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= link_to task.name, task %></td>
+      <td><%= task.due_date %></td>
+      <td><%= link_to "edit", [:edit, task] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "new record", [:new, :task] %>
