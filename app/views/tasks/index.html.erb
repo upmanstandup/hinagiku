@@ -1,1 +1,15 @@
 <h1>task list</h1>
+<table class="tasks">
+  <col class="name" />
+  <col class="due_date" />
+  <% @tasks.each do |task| -%>
+  <tr>
+    <td><%= link_to task.name, task %></td>
+    <td><%= task.due_date %></td>
+    <td><%= link_to "edit", [ :edit, task ] %></td>
+    <td><%= link_to "destroy", task, :method => :delete,
+            :confirm => "本当に削除しますか? " %></td>P
+  </tr>
+  <% end -%>
+</table>
+<%= link_to "新規登録", [ :new, :task ] %>
