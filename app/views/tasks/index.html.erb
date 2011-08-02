@@ -6,9 +6,12 @@
   <tr>
     <td><%= link_to task.name, task %></td>
     <td><%= task.due_date %></td>
-    <td><%= link_to "edit", [ :edit, task ] %></td>
-    <td><%= link_to "destroy", task, :method => :delete,
-            :confirm => "本当に削除しますか? " %></td>
+    <td>
+      <%= link_to "edit", [ :edit, task ] %>
+      <%= link_to "完了", [ :finish, task ], :method => :put %>
+      <%= link_to "destroy", task, :method => :delete,
+            :confirm => "本当に削除しますか? " %>
+    </td>
   </tr>
   <% end -%>
 </table>
