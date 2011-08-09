@@ -31,4 +31,10 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to :tasks
   end
+
+  def finish
+    @task = Task.find(params[:id])
+    @task.update_attribute(:done, true)
+    redirect_to :tasks
+  end
 end
