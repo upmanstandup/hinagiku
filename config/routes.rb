@@ -57,6 +57,7 @@ Hinagiku::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   root :to => "tasks#index"
   resources :tasks do
-    put :finish, :on => :member
+    put :finish, :restart, :on => :member
+    get :done, :on => :collection
   end
 end

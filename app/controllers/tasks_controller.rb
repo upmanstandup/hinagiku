@@ -37,4 +37,9 @@ class TasksController < ApplicationController
     @task.update_attribute(:done, true)
     redirect_to :tasks
   end
+
+  def done
+    @tasks = Task.where(:done => true)
+    render :action => "index"
+  end
 end
