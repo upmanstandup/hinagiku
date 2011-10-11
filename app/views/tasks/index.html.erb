@@ -20,17 +20,7 @@
   <tr>
     <td><%= link_to task.name, task %></td>
     <td><%= task.due_date %></td>
-    <td>
-      <%= link_to "edit", [ :edit, task ] %>
-      <%= if task.done?
-            link_to "restart", [ :restart, task ], :method => :put
-          else
-            link_to "finish", [ :finish, task ], :method => :put
-          end
-       %>
-      <%= link_to "destroy", task, :method => :delete,
-            :confirm => "本当に削除しますか? " %>
-    </td>
+    <td><%= links_for(task) %></td>
   </tr>
   <% end -%>
 </table>
