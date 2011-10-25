@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(:done => false)
+    @tasks = Task.undone
   end
 
   def show
@@ -39,8 +39,8 @@ class TasksController < ApplicationController
   end
 
   def done
-    @tasks = Task.where(:done => true)
-    render "index"
+    @tasks = Task.done
+    render :action => :index
   end
 
   def restart
